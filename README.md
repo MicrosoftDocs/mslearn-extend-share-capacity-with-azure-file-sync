@@ -10,44 +10,49 @@ urlFragment: "update-this-to-unique-url-stub"
 
 # Official Microsoft Sample
 
-<!-- 
-Guidelines on README format: https://review.docs.microsoft.com/help/onboard/admin/samples/concepts/readme-template?branch=master
-
-Guidance on onboarding samples to docs.microsoft.com/samples: https://review.docs.microsoft.com/help/onboard/admin/samples/process/onboarding?branch=master
-
-Taxonomies for products and languages: https://review.docs.microsoft.com/new-hope/information-architecture/metadata/taxonomies?branch=master
--->
-
-Give a short description for your sample here. What does it do and why is it important?
+The repository contains a script and files to complete exercises in the MS Learn module **Extend your on-premises file share capacity by using Azure File Sync**.
 
 ## Contents
 
-Outline the file contents of the repository. It helps users navigate the codebase, build configuration and any related assets.
-
 | File/folder       | Description                                |
 |-------------------|--------------------------------------------|
-| `src`             | Sample source code.                        |
+| `resources/CADFolder.zip`    | Folder contains the script create-bad-file.js and three sample data files.             |
 | `.gitignore`      | Define what to ignore at commit time.      |
-| `CHANGELOG.md`    | List of changes to the sample.             |
-| `CONTRIBUTING.md` | Guidelines for contributing to the sample. |
+| `CODE_OF_CONDUCT.md`    | Microsoft Open Source Code of Conduct.             |
 | `README.md`       | This README file.                          |
 | `LICENSE`         | The license for the sample.                |
+| `SECURITY.md`         | Security statement for sample.               |
 
 ## Prerequisites
 
-Outline the required components and tools that a user might need to have on their machine in order to run the sample. This can be anything from frameworks, SDKs, OS versions or IDE releases.
+Use on Windows Server operating system.
 
 ## Setup
 
-Explain how to prepare the sample once the user clones or downloads the repository. The section should outline every step necessary to install dependencies and set up any settings (for example, API keys and output folders).
+On the Windows Server you plan to use with Azure File Sync, download the CAD folder with curl. The steps to use the files in the folder are included in the module's exercise units.
 
 ## Running the sample
 
-Outline step-by-step instructions to execute the sample and see its output. Include steps for executing the sample from the IDE, starting specific services in the Azure portal or anything related to the overall launch of the code.
+1. Download this sample CAD file with curl.
 
-## Key concepts
+    ```cmd
+    curl https://github.com/MicrosoftDocs/mslearn-extend-share-capacity-with-azure-file-sync/blob/master/resources/CADFolder.zip?raw=true -L -o CADFolder.zip
+    ```
 
-Provide users with more context on the tools and services used in the sample. Explain some of the code that is being used and how services interact with each other.
+1. Expand the zip file.
+
+    ```cmd
+    CADFolder.zip
+    ```
+
+1. In the **File Explorer** window, select **Compressed Folder Tools**, then select **Extract all** and **Extract**.
+
+After you set up and register your Windows Server with Azure File Sync, use `create-bad-file.js` to create a file that won't sync. 
+
+1. Go to the **CADFolder** in both windows.
+1. Open **create-bad-file.js** on the left.
+1. See that a new file named, **invalid╘«nameÉ.txt** has been created.
+1. This file won't replicate into the Azure file share.
 
 ## Contributing
 
